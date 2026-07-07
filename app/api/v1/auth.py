@@ -70,14 +70,14 @@ async def login_user(credentials: UserLogin, db: AsyncSession = Depends(get_db))
     result = await db.execute(stmt)
     user = result.scalars().first()
 
-# 유저 조회 결과
+    # 유저 조회 결과
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="이메일 혹은 패스워드가 올바르지 않습니다."
         )
 
-#비활성 유저 체크
+    #비활성 유저 체크
     if not user.is_active:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
