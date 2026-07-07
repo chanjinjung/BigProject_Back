@@ -16,3 +16,7 @@ ENV/
 
 # OS
 .DS_Store
+
+# Planning Repository (Cloned for study)
+BigProject_Planning/
+
